@@ -47,7 +47,7 @@ Integral_vrcholy = computeIntegral2(M, f);
 Integral_strany = computeIntegral3(M, f);
 Boundary_points = BoundaryPts(M);
 
-[A,b] = Matice_tuhosti(M,f,Dir1,psi,alfa,ur);
+[A,b] = Matice_tuhosti(M,f,Dir1,psi,alfa,ur); % Compute stiffness matrix and load vector
 
 %Numerical solution
 u = A \ b;
