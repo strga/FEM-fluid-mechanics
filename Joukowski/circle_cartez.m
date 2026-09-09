@@ -4,16 +4,16 @@ clc;
 i = 1i; %imaginary number
 
 R = 0.1; %Radius of cylinder
-gam = 0.05; %Cirkulace rychlosti po profilu
+gam = 0.05; %Cirkulacion of velicity around profile
 degUhel = 8; %Angle of attack - degrees
 
-uhel = pi * degUhel / 180; %Uhel nabehu (Angle of attack) - radians
+uhel = pi * degUhel / 180; %(Angle of attack) - radians
 
 %Speed
 Uinfad = 10 * (cos(uhel) - sin(uhel) * i);
 Uinf = 10 * (cos(uhel) + sin(uhel) * i);
 
-%Oblast Omega
+%Region Omega
 [xx,yy] = meshgrid( -3:0.01:3, -3:0.01:3 );
 
 %Complex number
