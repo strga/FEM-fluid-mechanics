@@ -82,6 +82,7 @@ MM = log( chyba_h(6) / chyba_h(7) ) / log( vel_h(6) / vel_h(7) );
 P = chyba_h(4) / chyba_h(3);
 PP = chyba_h(3) / chyba_h(2);
 
+% Uncomment for log-log error plot, point-wise error, numerical + "analytical" solution comparison
 %{
 clear all;
 n1 = 10000;
@@ -130,7 +131,7 @@ title("Chyba výpočtu MKP s krokem h = 1/" + n2)
 
 figure(3)
 
-loglog(Krok_chyba(:,2), Krok_chyba(:,2))
+loglog(Krok_chyba(:,1), Krok_chyba(:,2))
 title("Chyba výpočtu MKP podle velikosti kroku h v log-log souřadnicích")
 xlabel("Krok h / log")
 ylabel("Velikost chyby E / log")
