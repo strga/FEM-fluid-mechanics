@@ -4,16 +4,16 @@ clc;
 i = 1i; %imaginary number
 
 R = 0.1; %Radius of cylinder
-gam = 0.05; %Cirkulace rychlosti po profilu
+gam = 0.05; %Circulation of velocity around profile
 degUhel = 8; %Angle of attack - degrees
 
-uhel = pi * degUhel / 180; %Uhel nabehu (Angle of attack) - radians
+uhel = pi * degUhel / 180; %Angle of attack - radians
 
 %Speed
 Uinfad = 10 * (cos(uhel) - sin(uhel) * i);
 Uinf = 10 * (cos(uhel) + sin(uhel) * i);
 
-%Oblast Omega - polar coordinates, radius of contour area r = < 0.1 ; 1.1 >
+%Region Omega - polar coordinates, radius of contour area r = < 0.1 ; 1.1 >
 [rr,phi] = meshgrid(R + 10 * R * (0:0.002:1), 0:0.001:(2 * pi) );
 
 %Polar complex number
