@@ -9,7 +9,7 @@ Finite element method solver for 2D irrotational fluid flow, implemented in MATL
 - Verified 2nd order convergence
 
 - ## Cases
-- NACA 0012 airfoil — incompressible and compressible potential flow at 0°, 4°, 8°
+- NACA 0012 airfoil — incompressible and compressible potential flow at different angle of attack
 - Joukowski airfoil — FEM numerical solution vs. complex-variable analytical solution
 - Semicircle domain — convergence tests with Dirichlet, Neumann, Robin BCs
 - 1D FEM validation problems
