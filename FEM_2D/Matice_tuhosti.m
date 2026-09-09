@@ -13,8 +13,8 @@ for k = 1:M.nbTriangles
     G = computeGradient(K);
     ilist = [ K.iA, K.iB, K.iC ];
     
-    Bk = eye(3,3);                                                   % Bazove funkce pro souradnice vrcholu ref. trojuhelniku X1(0,0), X2(1,0), X3(0,1)...PHI_STRISKA_KSI,
-    fk = [f(K.A(1), K.A(2)), f(K.B(1),K.B(2)), f(K.C(1),K.C(2))];   % funkcni hodnoty ve vrcholech trojuhelniku
+    Bk = eye(3,3);                                                   % Basis functions for coordinates of vertices of ref. triangle X1(0,0), X2(1,0), X3(0,1)...PHI_STRISKA_KSI,
+    fk = [f(K.A(1), K.A(2)), f(K.B(1),K.B(2)), f(K.C(1),K.C(2))];    % Function evaluated in the vertices of triangle
     Omega = [1/3, 1/3, 1/3];                                         % Omega == vaha, |K| = h^2 / 2, |K| * Teziste, |K| * 1/3 * ( f(A) + f(B) + f(C) ), |K| * 1/3 * ( f(Sa) + f(Sb) + f(Sc) ),...
                                                                                 ... Pro tesiste 1x == 1/2, pro vrcholy + stredy stran 3x == 1/6
 
@@ -83,7 +83,7 @@ b(iblist) = Dir1( Pos1(:,1), Pos1(:,2) );
 %Internal points of domain
 intlist = setdiff(1:n,iblist);
 
-%Matice tuhosti - regularni
+%Stiffness matrix - regular
 A(iblist,:) = 0;
 b(intlist) = b(intlist) - A(intlist,iblist) * b(iblist);
 A(:,iblist) = 0;
