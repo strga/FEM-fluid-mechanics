@@ -2,9 +2,9 @@ clc;
 clear all;
 format long
 
-n1 = 10000;     %kroky pro 'analyticke' reseni
-n2 = 5;         %kroky pro numericke reseni MKP
-K = [2 4 8 16 32 64 128 256 512];
+n1 = 10000;     %steps for 'analytic' solution
+n2 = 5;         %steps for numerical solution FEM
+K = [2 4 8 16 32 64 128 256 512]; %Mesh refinements
 
 f = @(x) x + 2 ;
 
@@ -39,7 +39,7 @@ for n3 = K
 
 end
 
-%Vypocet radu chyby p
+%Computing order p
 for i = 2:length(K)
    
    p(1) = 0;
@@ -50,7 +50,7 @@ end
 
 Krok_chyba = [vel_h; chyba_h; p]';
 
-% Srovnani analytickeho reseni s MKP
+% Compare analytic and FEM solution
 figure(1)
 plot(x,Y)
 hold on
@@ -82,34 +82,7 @@ MM = log( chyba_h(6) / chyba_h(7) ) / log( vel_h(6) / vel_h(7) );
 P = chyba_h(4) / chyba_h(3);
 PP = chyba_h(3) / chyba_h(2);
 
-% Porovnání chyby MKP
-function [x,Y] = FEM_1D(n1, f)
-
-% Rozdělení intervalu
-
-n = n1 - 1;             % rozdělení na množství hodnot, které chci zjistit ... dim V = n
-h = 1. / (n1);          % velikost kroku ... množství kroků, potřebné dostat se z v(0) do v(1), když hledám n hodnot mezi v(0) a v(1) (= dim V)
-x = (0:h:1)';           % diskretizace x po velikosti h od 0 do 1
-y = f(x);               % výsledné hodnoty z funkce f = @(x) 
-
-% Matice tuhosti
-
-U = diag(2 * ones(n,1));
-V = diag(-ones(n-1,1),1);
-W = diag(-ones(n-1,1),-1);
-A = U + V + W;                  % Řídká matice tuhosti 
-
-b = h * h * f(x(2:end - 1));    % Výpočet elementů matice od druhé do předposlední hodnoty (1. a poslední hodnota dána okrajovým podmínkami).
-                                % Matice má tvar pro h = 1/(1+n) 1/h Au = b a zároveň b = h*f(x)'
-u = A \ b;
-
-Y = [0;u;0];                    % Vektor sloupcový s prvním elementem 0, pak elementy u a poslední 0
-
-end
-
-
 %{
-
 clear all;
 n1 = 10000;
 n2 = 5;
@@ -161,5 +134,4 @@ loglog(Krok_chyba(:,2), Krok_chyba(:,2))
 title("Chyba výpočtu MKP podle velikosti kroku h v log-log souřadnicích")
 xlabel("Krok h / log")
 ylabel("Velikost chyby E / log")
-
 %}
