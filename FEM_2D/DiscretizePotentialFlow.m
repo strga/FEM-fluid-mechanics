@@ -49,30 +49,6 @@ for i = iNEU'
     b(S.idxB) = b(S.idxB) + S.ds * bvp.phiNeu( S.B(1), S.B(2), S.nn(1), S.nn(2) ) / 2;
     
 end
-    
-%ROBIN BOUNDARY CONDITION
-%{
-iROB = find(M.LINES(:, 3) == 20); %Find lines with given BC
-
-I = [];
-J = [];
-VAL = [];
-
-for i = iROB'
-    S = getMeshBoundarySide(M, i);
-    
-    b(S.idxA) = b(S.idxA) + S.ds * alfa * ur( S.A(1), S.A(2), S.nn(1), S.nn(2) ) / 2;
-    b(S.idxB) = b(S.idxB) + S.ds * alfa * ur( S.B(1), S.B(2), S.nn(1), S.nn(2) ) / 2;
-    
-    I = [I, S.idxA, S.idxB];
-    J = [J, S.idxA, S.idxB];
-    
-    hodnota = S.ds * alfa * 1 / 2;
-    VAL = [VAL, hodnota, hodnota];
-end
-
-A = A + sparse(I, J, VAL, n, n);
-%}
 
 %DIRICHLET BOUDARY CONDITION
 iblist = find((Bmark == 1) | (Bmark == 2));
