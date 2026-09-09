@@ -16,7 +16,7 @@ V.lower = sqrt( u.uux(Profile.lower).^2 + u.uuy(Profile.lower).^2 );
 V.wing = sqrt( u.uux(Profile.pts).^2 + u.uuy(Profile.pts).^2 );
 V.Omega = sqrt( u.uux.^2 + u.uuy.^2 );
 
-%Pressure [Aerodynamika str. 57]
+%Pressure
 p.upper = 1/2 * rho * ( u.U.^2 -  abs(V.upper).^2);
 p.lower = 1/2 * rho * ( u.U.^2 -  abs(V.lower).^2);
 p.wing =  1/2 * rho * ( u.U.^2 -  abs(V.wing).^2);
