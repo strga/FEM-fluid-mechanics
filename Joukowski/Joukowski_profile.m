@@ -15,18 +15,18 @@ degUhel = 5; %Angle of attack - degrees
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%Radius kruhu Kr
+%Radius of circle Kr
 R1 = sqrt(a.^2 + h.^2);
 
-%Zmena delky trojuhelniku (z podobnosti trojuhelniku)
+%Change of triangles (from similar triangles)
 dh = delta * h / R1;
 da = delta * a / R1;
 
-Sx = - da; % centre of circle Mx ( minus kvuli orientaci profilu )
+Sx = - da; % centre of circle Mx ( minus profile orientation )
 Sy = h + dh; % centre of circle My
 R = R1 + delta; % Radius of M
 
-%Zukovskeho profil
+%Joukowski profil
 %tt = 2 * pi * ( 0 : 0.001 : 1 ); %0.001
 tt = 2 * pi * ( 0 : 0.0104 : 1 );
 
@@ -40,14 +40,14 @@ axis equal
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-uhel = pi * degUhel / 180; %Uhel nabehu (Angle of attack) - radians THETA
+uhel = pi * degUhel / 180; %Angle of attack - radians THETA
 Radius = (R:0.1:30)';
 
 %Speed
 Uinfad = U .* (cos(uhel) - sin(uhel) * i);
 Uinf = U .* (cos(uhel) + sin(uhel) * i);
 
-%Cirkulace rychlosti po profilu
+%Circlulation of velocity around the profile
 gam = 2 * pi * R * U * ( uhel + atan(h/a) );
 
 %Area in polar coordinates
@@ -65,7 +65,7 @@ zz = ( z1 + a.^2 ./ z1 ) / 2;
 %zz_der = ( 1 + ( z1 ./ ( sqrt( z1.^2 - a.^2 ) ) ) );
 zz_der = 1/2 * ( 1 - ( a.^2 ./ z.^2 ) );
 
-%zz2 = K(z) - S     K(z) = inverzni zobrazení k Zukovskemu zob.
+%zz2 = K(z) - S     K(z) = inverse mapping to Zuk. mapping
 zz2 = z1 - Sx - i * Sy;
 
 %Complex potential - Zukovskij
