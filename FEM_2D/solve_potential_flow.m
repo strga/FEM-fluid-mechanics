@@ -8,13 +8,6 @@ M = load_gmsh('NACA_0012.msh');
 x = M.POS(:,1); y = M.POS(:, 2);
 M.tri = M.TRIANGLES(1:M.nbTriangles,1:3);
 
-%NACA 0012 stlacitelne proudeni pro u=100
-%0deg == 0.06162 4deg == -60.6162 5deg == -70.04360, 6deg == -80.04360  7 deg == -82.04360
-%8deg == -81.80  8.2deg == -83.64360
-
-%Zukovskeho profil
-%0deg == -177.16965, 4deg == -345.72176, 8deg == -512.58954
-
 theta = 0;  %[deg]
 u.U = 50;     %[m/s]
 rho = 1.225;  %Hustota vzduchu [kg/m^3]
