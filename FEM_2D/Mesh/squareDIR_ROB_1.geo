@@ -17,8 +17,7 @@ Plane Surface(1) = {1};
 Transfinite Line{1,2,3,4} = 33;
 Transfinite Surface(1);
 
-Physical Curve(1) = {3,4};
-Physical Curve(10) = {1};
+Physical Curve(1) = {1,3,4};
 Physical Curve(20) = {2};
 
 Physical Surface(5) = {1};

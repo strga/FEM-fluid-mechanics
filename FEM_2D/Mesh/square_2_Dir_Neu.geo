@@ -1,3 +1,4 @@
+
 Mesh.MshFileVersion=2;
 
 Point(1) = {0,0,0};
@@ -17,8 +18,8 @@ Plane Surface(1) = {1};
 Transfinite Line{1,2,3,4} = 33;
 Transfinite Surface(1);
 
-Physical Curve(1) = {3,4};
-Physical Curve(10) = {1};
-Physical Curve(20) = {2};
+Physical Curve(1) = {1};
+Physical Curve(2) = {3};
+Physical Curve(10) = {2,4};
 
 Physical Surface(5) = {1};
