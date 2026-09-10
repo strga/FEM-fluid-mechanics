@@ -16,13 +16,14 @@ Finite element method solver for 2D irrotational fluid flow, implemented in MATL
 
 - ## Results
 Pressure coefficient (Cp), velocity, and density distributions for each case.
-Output figures examples are stored in `FEM_2D/FEM_2D_figures/`.
+Output figures examples are stored in `FEM_2D/Figures/`.
 
 ## Requirements
 - MATLAB
 - GMSH (for mesh generation — `.geo` and `.msh` files included)
+- ParaView for data post-processing
 
 ## Run
-Open `FEM_2D/DiscretizePotentialFlow.m` in MATLAB and run.
-For compressible flow: `FEM_2D/DiscretizePotentialFlowCompress.m`
-For Joukowski airfoil: `Zuk_profil/Zukovskeho_profil.m`
+Open `FEM_2D/solve_potential_flow.m` in MATLAB and run.
+For (in)compressible flow (un)comment functions in: `FEM_2D/solve_potential_flow.m` 
+For Joukowski airfoil: `Joukowski/Joukowski_profile.m`
